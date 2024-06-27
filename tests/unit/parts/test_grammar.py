@@ -40,6 +40,8 @@ GRAMMAR_SCALAR_ENTRIES = [
     # on other-arch no else.
     GrammarEntry([{"on arm64": "entry"}], None),
     # TODO: on <arch> to <target-arch> match
+    GrammarEntry([{"to amd64": "entry"}], "entry"),  # working
+    GrammarEntry([{"to [amd64,arm64]": "entry"}], "entry"),  # failing
 ]
 
 

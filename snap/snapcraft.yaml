@@ -47,6 +47,11 @@ apps:
     command: bin/python $SNAP/bin/snapcraft
     completer: completion.sh
 
+  importbench:
+    environment:
+      PYLXD_WARNINGS: "none"
+    command: bin/bench
+
 build-packages:
   - cargo
   - build-essential
@@ -73,8 +78,10 @@ parts:
       craft.git: libexec/snapcraft/craft.git
       # Put sitecustomize in site-packages
       sitecustomize.py: lib/python3.12/site-packages/sitecustomize.py
+      bench.sh: bin/bench
 
     stage:
+      - "bin/"
       - "libexec/"
       - "lib/"
 
